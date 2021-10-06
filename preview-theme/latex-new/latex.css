@@ -1,0 +1,535 @@
+/* 引入字体，尽管在html中可能没用 */
+
+/* LM Roman */
+
+@font-face {
+  font-family: 'LM Roman 10';
+  font-style: normal;
+  font-weight: normal;
+  src: url("./latex/lmroman10-regular.otf");
+}
+
+@font-face {
+  font-family: 'LM Roman 10';
+  font-style: italic;
+  font-weight: normal;
+  src: url("./latex/lmroman10-italic.otf");
+}
+
+@font-face {
+  font-family: 'LM Roman 10';
+  font-style: normal;
+  font-weight: bold;
+  src: url("./latex/lmroman10-bold.otf");
+}
+
+@font-face {
+  font-family: 'LM Roman 10';
+  font-style: italic;
+  font-weight: bold;
+  src: url("./latex/lmroman10-bolditalic.otf");
+}
+
+/* LM Mono */
+
+@font-face {
+  font-family: 'LM Mono 10';
+  font-style: normal;
+  font-weight: normal;
+  src: url("./latex/lmmono10-regular.otf");
+}
+
+@font-face {
+  font-family: 'LM Mono 10';
+  font-style: italic;
+  font-weight: normal;
+  src: url("./latex/lmmono10-italic.otf");
+}
+
+
+@font-face {
+  font-family: 'Source Han Serif SC';
+  font-style: normal;
+  font-weight: normal;
+  src: url("./latex/SourceHanSerifSC-Regular.otf");
+}
+
+@font-face {
+  font-family: 'Source Han Serif SC';
+  font-style: normal;
+  font-weight: bold;
+  src: url("./latex/SourceHanSerifSC-Bold.otf");
+}
+
+/* 宋 */
+@font-face {
+  font-family: simsun;
+  src: url("./latex/simsun.ttc");
+}
+
+/*初始化格式*/
+/* 注意嵌套关系为body>markdown_preview */
+
+body {
+  margin: auto !important;
+  /*页面位置调整*/
+  text-align: justify;
+  /*两侧对齐*/
+  background-color: #ffffff;
+  color: black;
+  max-width: 21cm;
+  /*页宽*/
+}
+
+body p {
+  line-height: 1.37rem;
+  /*行距*/
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'Source Han Serif SC', 'simsun', sans-serif;
+  font-size: 11pt;
+  /*字号*/
+}
+
+/* 仅在浏览时使用（打印时无效） */
+@media screen {
+  .markdown-preview {
+    /*左右页边距*/
+    padding-left: 1.6cm !important;
+    padding-right: 1.6cm !important;
+    box-shadow: 0 0 24px 12px #CCCCCC;
+    /*页面阴影*/
+  }
+}
+
+
+@media print {
+  @page {
+    margin: 2.54cm 3.18cm !important;
+    size: A4;
+  }
+}
+
+
+/* 内嵌于body的预览块主体 */
+.markdown-preview {
+  margin: auto !important;
+  /*调整页面位置*/
+  right: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  max-width: 21cm;
+  /*页宽*/
+}
+
+/* 侧边栏收起时处理页面宽度 */
+[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+
+/* 侧边栏打开时处理页面宽度 */
+[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+  left: calc(50% + 150px) !important;
+  transform: translateX(-50%);
+}
+
+/* 自用note注释块 */
+div.note {
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'Source Han Serif SC', 'simsun', sans-serif;
+  font-size: 10.5pt;
+  float: right;
+  clear: both;
+  text-align: left;
+  /* border-radius: 3px 3px 3px 3px ;  */
+  border-left: 2px solid #0e78cf;
+  padding: 1px 10px 1px 10px;
+  width: 5cm;
+  margin-left: 24px;
+}
+
+/* 一级标题 */
+h1 {
+  page-break-before: always;
+  margin-top: 42pt;
+  /*段前*/
+  margin-bottom: 24pt;
+  /*段后*/
+  max-width: 21cm;
+  text-align: center;
+  /*居中*/
+  font-size: 18pt;
+  /*字号*/
+}
+
+/* 标题通用 */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  page-break-after: avoid !important;
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 黑体;
+
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+}
+
+/* 二级标题 */
+h2 {
+  font-size: 15pt;
+}
+
+
+/* 三级标题 */
+h3 {
+  font-size: 14pt;
+}
+
+/* 四级标题,五级标题 */
+h4
+{
+  font-size: 12pt;
+}
+
+h5 {
+  font-size: 11pt;
+}
+
+
+/* 列表内容*/
+li {
+  font-size: 11pt;
+  /*列表字号*/
+}
+
+/* 引用块 */
+blockquote {
+  background-color: rgb(241, 241, 255);
+  margin: 10px;
+  /*外边距*/
+  border-radius: 3px 3px 3px 3px;
+  /*圆角*/
+  padding: 4px 20px 4px 20px;
+  /*内边距*/
+  /*  border: 1px solid #2181ad;            边框*/
+}
+
+/* 引用文字 */
+blockquote p {
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'Source Han Serif SC', 'simsun', sans-serif;
+  font-size: 11pt;
+  color: #02101f;
+}
+
+/* 链接 */
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* 分割线 */
+hr {
+  height: 2px;
+  border: none;
+  border-top: 1px solid #c8d3df;
+}
+
+/* 折叠文字 */
+details {
+  font-size: 11pt;
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'Source Han Serif SC', 'simsun', sans-serif;
+  box-sizing: border-box;
+  border-left: 2px green solid;
+  /*左侧一条线*/
+  margin: 12px;
+  /*外边距*/
+  padding-left: 24px;
+  /*左侧内边距*/
+  padding-right: 18px;
+  /*右侧内边距*/
+}
+
+/* 居中文字 */
+center {
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'KaiTi', 'Source Han Serif SC', 'simsun', sans-serif;
+}
+
+/* katex渲染的数学公式 */
+.katex {
+  font-size: 0.95rem;
+  /*控制行间公式字号*/
+  text-indent: 0;
+  text-rendering: auto;
+}
+
+/* mathjax渲染的数学公式 */
+.MathJax_Display {
+  font-size: 0.8rem;
+  /*控制行间公式字号*/
+}
+
+/* 公式块的边距 */
+span.base {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  max-width: 100%;
+}
+
+/* 侧栏 */
+.md-sidebar-toc {
+  background-color: #eeeeee;
+  /*背景颜色*/
+}
+
+.md-sidebar-toc li {
+  font-size: 0.8rem !important;
+  /*字号*/
+  margin-bottom: 0 !important;
+  text-align: left;
+  /*左对齐*/
+}
+
+.md-sidebar-toc ul li {
+  font-weight: bold;
+  /*一级大纲*/
+}
+
+.md-sidebar-toc ul ul {
+  padding-left: 0pt !important;
+  padding-right: 0 !important;
+  margin-top: 2pt !important;
+  margin-bottom: 2pt !important;
+}
+
+.md-sidebar-toc ul ul li {
+  margin-bottom: 8pt !important;
+  margin-top: 8pt !important;
+}
+
+.md-sidebar-toc ul ul ul {
+  padding-left: 8pt !important;
+}
+
+.md-sidebar-toc ul ul ul li {
+  font-weight: normal;
+  margin-top: 2pt !important;
+  margin-bottom: 2pt !important;
+}
+
+/* 侧栏自动编号 */
+/* 复位计数器 */
+body {
+  counter-reset: outline-h2 0 outline-h3 0 outline-h4 0 outline-h5 0
+}
+
+.md-sidebar-toc ul li {
+  counter-reset: outline-h2;
+}
+
+.md-sidebar-toc ul ul li {
+  counter-reset: outline-h3;
+}
+
+.md-sidebar-toc ul ul ul li {
+  counter-reset: outline-h4;
+}
+
+.md-sidebar-toc ul ul ul ul li {
+  counter-reset: outline-h5;
+}
+
+/* 进行编号 */
+
+.md-sidebar-toc ul ul li:before {
+  counter-increment: outline-h2;
+  content: counter(outline-h2) " ";
+}
+
+.md-sidebar-toc ul ul ul li:before {
+  counter-increment: outline-h3;
+  content: counter(outline-h2) "."counter(outline-h3) " ";
+}
+
+.md-sidebar-toc ul ul ul ul li:before {
+  counter-increment: outline-h4;
+  content: counter(outline-h2) "."counter(outline-h3) "."counter(outline-h4) " ";
+}
+
+.md-sidebar-toc ul ul ul ul ul li:before {
+  counter-increment: outline-h4;
+  content: counter(outline-h2) "."counter(outline-h3) "."counter(outline-h4) "."counter(outline-h5) " ";
+}
+
+
+
+/* 三线表 */
+table {
+  border-top: 1.5pt solid;
+  border-bottom: 1.5pt solid;
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', "Times New Roman", Arial, "Source Han Serif SC", 'simsun', sans-serif;
+  text-align: center;
+  /*文字居中*/
+  page-break-inside: avoid;
+  /*禁止断页*/
+  width: 100%;
+  /*扩展表格宽度*/
+  overflow: auto;
+  margin-bottom: 8pt;
+  /*表格间距*/
+  border-collapse: collapse;
+}
+
+table .katex {
+  font-size: 9pt;
+  /*表内公式*/
+}
+
+table td {
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', "Times New Roman", Arial, "Source Han Serif SC", 'simsun', sans-serif;
+  font-size: 9pt;
+  /*表内文字*/
+}
+
+table thead {
+  border-bottom: 0.75pt solid black;
+  /*三线表中间线*/
+}
+
+/*标题行*/
+table th {
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', "Times New Roman", Arial, "SimHei", "Source Han Serif SC", 'simsun', sans-serif;
+  font-size: 9pt;
+}
+
+
+/* 图片 */
+img {
+  page-break-inside: avoid;
+  margin-left: auto;
+  /**以下三行使图片居中*/
+  margin-right: auto;
+  display: block;
+  max-width: 100%;
+  /*防止宽度溢出*/
+  padding: 32px;
+  /*边界*/
+}
+
+.display img
+{
+  margin: 16px 0 !important;
+  max-width: 50%;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.illu img
+{
+  float: right;
+  max-width: 25%;
+}
+
+table,
+figure {
+  page-break-inside: avoid;
+}
+
+
+
+/* 图片描述文字 */
+figcaption {
+  display: block;
+  font-size: 12px;
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'Source Han Serif SC', 'simsun', sans-serif;
+}
+
+/*有序和无序列表*/
+body ul,
+body ol {
+  margin: 0;
+  font-family: 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'Source Han Serif SC', 'simsun', sans-serif;
+  font-size: initial;
+  text-decoration: none
+}
+
+
+
+/* 行内代码 */
+p code,
+li code {
+  color: rgb(60, 112, 198);
+  background-color: #fefefe;
+  font-family: 'Latin Modern Mono 10', "LM Mono 10", 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'Source Han Serif SC', 'simsun', sans-serif;
+  /* box-sizing: border-box; 
+    border-right: 0px; */
+  margin: 0 2px 0 2px;
+  padding: 0 2px 0 2px;
+  /*  border-radius: 2px 2px 2px 2px ; 
+    box-shadow: 0 0 2px 2px #c8d3df;          加一点阴影 */
+  font-size: 11pt !important;
+}
+
+.language-c {
+  font-size: 9pt;
+  font-family: 'Latin Modern Mono 10', "LM Mono 10", 'Consolas', 'Courier New', monospace, 'Latin Modern Roman 10', 'LM Roman 10', 'Times New Roman', Arial, 'Source Han Serif SC', 'simsun', sans-serif;
+}
+
+/* 标题自动编号 */
+/* 复位计数器 */
+body {
+  counter-reset: h2 0 h3 0 h4 0 h5 0 h6 0
+}
+
+h1 {
+  counter-reset: h2
+}
+
+h2 {
+  counter-reset: h3
+}
+
+h3 {
+  counter-reset: h4
+}
+
+h4 {
+  counter-reset: h5
+}
+
+h5 {
+  counter-reset: h6
+}
+
+/* 输出编号 */
+
+h2:before {
+  counter-increment: h2;
+  content: counter(h2);
+  margin-right: 2rem;
+}
+
+h3:before,
+h3.md-focus.md-heading:before {
+  counter-increment: h3;
+  content: counter(h2) "."counter(h3);
+  margin-right: 2rem;
+}
+
+/* h4:before,
+h4.md-focus.md-heading:before {
+  counter-increment: h4;
+  content: counter(h2) "."counter(h3) "."counter(h4) "";
+  margin-right: 2rem;
+} */
+
+/* h5:before,
+h5.md-focus.md-heading:before {
+  counter-increment: h5;
+  content: counter(h2) "."counter(h3) "."counter(h4) "."counter(h5);
+  margin-right: 2rem;
+} */
+
